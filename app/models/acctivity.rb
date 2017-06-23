@@ -1,2 +1,0 @@
-class Acctivity < ApplicationRecord
-end
