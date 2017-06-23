@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class AcctivityTest < ActiveSupport::TestCase
+class SugarTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
