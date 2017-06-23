@@ -1,0 +1,4 @@
+<%= form_for @activity ,:url=>activity_path(@activity),:method=>:patch do |user_data| %>
+    <%= render :partial=>"form", :locals=>{:data=>user_data} %>
+    <%= user_data.submit "Update" %>
+<% end %>

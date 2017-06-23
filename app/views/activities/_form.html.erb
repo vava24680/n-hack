@@ -1,6 +1,8 @@
 <br/>
 <%= data.collection_select :shop_id,Shop.all,:id,:name,:prompt=>false %>
 <br/>
+<%= data.label :title,"團購標題" %>
+<%= data.text_field :title %>
 <%= data.label :cuttime,"截止時間" %>
 <%= data.text_field :cuttime%>
 <br/>
