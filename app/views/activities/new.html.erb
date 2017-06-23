@@ -1,0 +1,5 @@
+<%= form_for @activity, :url=>activities_path,:method=>:pots do |user_data| %>
+    <%= render :partial=>"form",:locals=>{:data=>user_data} %>
+    <br/>
+    <%= user_data.submit "Create a 團購" %>
+<% end %>

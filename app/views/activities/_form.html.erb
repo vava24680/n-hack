@@ -1,0 +1,14 @@
+<br/>
+<%= data.collection_select :shop_id,Shop.all,:id,:name,:prompt=>false %>
+<br/>
+<%= data.label :cuttime,"截止時間" %>
+<%= data.text_field :cuttime%>
+<br/>
+<%= data.label :arrtime,"預計送達時間"  %>
+<%= data.text_field :arrtime %>
+<br/>
+<%= data.label :est_quantity,"目標人數" %>
+<%= data.number_field :est_quantity,:min=>1 %>
+<br/>
+<%= data.label :place,"取貨地點" %>
+<%= data.text_field :place %>

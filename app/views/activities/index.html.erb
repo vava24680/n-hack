@@ -1,0 +1,7 @@
+<% if current_admin %>
+    <%= link_to "Log out", destroy_admin_session_url %>
+    <%= link_to "新增團購", new_activity_path %>
+<% else %>
+    <%= link_to "Log in", new_admin_session_url %>
+    <%= link_to "Sign up", new_admin_registration_url %>
+<% end %>
