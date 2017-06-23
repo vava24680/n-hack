@@ -1,0 +1,13 @@
+<br/>
+<%= data.label :item ,"品項" %>
+<%= data.text_field :item %>
+<br/>
+<%= data.label :sugar_level ,"糖度" %>
+<%= data.collection_select :sugar_level,Sugar.all,:level,:name %>
+&nbsp
+<%= data.label :ice_level,"冰度" %>
+<%= data.collection_select :ice_level,Ice.all,:level,:name %>
+<br/>
+<%= data.label :price ,"價格" %>
+<%= data.text_field :price %>
+<br/>

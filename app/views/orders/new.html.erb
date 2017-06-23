@@ -1,0 +1,5 @@
+<%= form_for @order, :url=>orders_path, :method=>:post do |user_data| %>
+    <%= render :partial=>"form",:locals=>{:data=>user_data} %>
+    <br/>
+    <%= user_data.submit "Create" %>
+<% end %>
