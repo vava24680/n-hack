@@ -1,7 +1,50 @@
 <!DOCTYPE html>
 <html>
   <head>
+    
     <title>手搖Bar</title>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- CSS links -->
+    <link rel="stylesheet" href="DrinkBar.css">
+    <link href="jquery-ui-timepicker-addon.css" rel="stylesheet"></link>
+
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/hot-sneaks/jquery-ui.css" rel="stylesheet">
+
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  	 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+
+<script>
+	var tform ={dateFormat: 'yy-mm-dd',
+               showSecond: true,
+               timeFormat: 'HH:mm:ss'
+               };
+
+    $(function() {
+        $("#datepicker").datepicker(tform);
+    });
+
+    $(document).ready(function(){ 
+      $('#activity_cuttime').datetimepicker(tform);
+      });
+
+    $(document).ready(function(){ 
+      $('#activity_arrtime').datetimepicker(tform);
+      });
+    </script>
+
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,8 +52,49 @@
   </head>
 
   <body>
-      <%= yield %>
-      <%= link_to "Index", root_url %>
-      <%= debug(params) if Rails.env.development? %>
+  <header style="display: block;">
+        <h1>手搖 Bar</h1>
+    </header>
+
+
+
+  <nav class="nav_bar">
+        <ul>
+            <li><a href="/"> 首頁 </a></li>
+            <li><a href="/activities/new"> 開團 </a></li>
+            <li><a href=""> 帳號管理 </a></li>
+            <li style="float:right; background-color: #f9d572; "><a href="/admins/sign_in"> 登入 </a></li>
+            <li style="float:right; background-color: #f9d572; border-right: solid 3px gray;"><a href="/admins/sign_out"> 登出 </a></li>
+        </ul>
+    </nav>
+
+    <table>
+        <tr>
+            <td id="tabs_bar">
+                <div id="sidebar_title">選單</div>
+                <ul id="tabs" class="fix">
+                	  <li><a href="">首頁</a></li>
+                    <li><a href="">開團一覽</a></li>
+                    <li><a href="">開團管理</a></li>
+                    <li><a href="">跟團確認</a></li>
+                </ul>
+            </td>
+            <td>
+                <div id="container" style="padding-left: 10%;">
+                    
+
+                    <div>
+                    	<%= yield %>
+                    </div>                   	
+                    
+                        <!-- __________ main page __________ -->
+                        
+                        
+                </div>
+            </td>
+            <!-- <td id="blank">            </td> -->
+        </tr>
+    </table>
+
   </body>
 </html>
