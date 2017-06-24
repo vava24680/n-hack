@@ -21,7 +21,7 @@ class ActivitiesController < ApplicationController
         end
     end
     def show
-       save_activityID(@activity)
+       #save_activityID(@activity)
     end
     def edit
         if current_user.id!=@activity.user_id
@@ -45,6 +45,6 @@ private
         @activity = Activity.find(params[:id])
     end
     def activity_params
-        params.require(:activity).permit(:title,:shop_id,:cuttime,:picktime,:estquantity,:place)
+        params.require(:activity).permit(:title,:shop_id,:cuttime,:picktime,:est_quantity,:place)
     end
 end

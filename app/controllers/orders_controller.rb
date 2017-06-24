@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
         @order.user_id=current_admin.id
         @order.activity_id = get_activityID
         if @order.save
-            @activity=Activity.find_by(:id=>get_activityID)
+            @activity=Activity.find_by(:id=>params[:activity_id])
             @activity.increment(:cur_quantity)
             @activity.save
             #flash[:notice]="成功訂購一杯飲料"
@@ -42,7 +42,7 @@ class OrdersController < ApplicationController
     end
 private
     def order_params
-        params.require(:order).permit(:item,:sugar_level,:ice_level,:price)
+        params.require(:order).permit(:item,:sugar_level,:ice_level,:price,:activity_id)
     end
     def set_order
         @order=Order.find(params[:id])
