@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170623153210) do
+ActiveRecord::Schema.define(version: 20170624013108) do
 
   create_table "acctivities", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20170623153210) do
     t.integer "est_quantity"
     t.integer "cur_quantity", default: 0
     t.datetime "arrtime"
+    t.boolean "stillValid", default: true
   end
 
   create_table "admins", force: :cascade do |t|
