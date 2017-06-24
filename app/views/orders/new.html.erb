@@ -1,6 +1,6 @@
 <%= form_for @order, :url=>orders_path(:activity_id=>params[:activity]), :method=>:post do |user_data| %>
     <%= render :partial=>"form",:locals=>{:data=>user_data} %>
     <br/>
-    <%= user_data.submit "Create" %>
+    <%= user_data.submit "確定" %>
 <% end %>
-<%= link_to "Back to activity index page", activities_url,:method=>:get %>
+
