@@ -1,0 +1,19 @@
+<% @allactivities.each do |activity| %>
+    <div>
+    <%= Shop.find_by(:id=>activity.shop_id).name %>
+    <%= activity.cur_quantity %>
+    <%= activity.est_quantity %>
+    <br/>
+    -------------------------------
+    
+    <%= activity.created_at.month %>
+    <%= activity.created_at.day %>
+    -------------------------------
+    <br/>
+    cuttime month and day
+    <%= activity.cuttime.month %>
+    <%= activity.cuttime.day %>
+    -------------------------------
+    <%= link_to "編輯此團", edit_activity_path(activity),:method=>:get %>
+    </div>
+<% end %>

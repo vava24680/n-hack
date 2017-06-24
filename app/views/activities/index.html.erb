@@ -1,6 +1,7 @@
 <% if current_admin %>
     <%= link_to('登出', destroy_admin_session_path, :method => :delete) %>
     <%= link_to "開團", new_activity_path,:method=>:get %>
+    <%= link_to "你的開團", youractivity_activities_path,:method=>:get %>
 <% else %>
     <%= link_to "Log in", new_admin_session_url %>
     <%= link_to "Sign up", new_admin_registration_url %>
