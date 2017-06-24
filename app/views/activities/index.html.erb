@@ -1,27 +1,53 @@
-<% if current_admin %>
-    <%= link_to('登出', destroy_admin_session_path, :method => :delete) %>
-    <%= link_to "開團", new_activity_path,:method=>:get %>
-    <%= link_to "你的開團", youractivity_activities_path,:method=>:get %>
-<% else %>
-    <%= link_to "Log in", new_admin_session_url %>
-    <%= link_to "Sign up", new_admin_registration_url %>
-<% end %>
+<br><br><br>
+
+<h2 style="width: 80%"> 目前的團 </h2>
+
+<br><br><br>
+
+<div style="background: white; padding: 0; width: 80%">
+
 <% @activities.each do |activity| %>
-    <div>
-    <%= Shop.find_by(:id=>activity.shop_id).name %>
-    <%= activity.cur_quantity %>
-    <%= activity.est_quantity %>
-    <br/>
-    -------------------------------
+
+
+
+    <div class="act col-md-6 col-sm-6 col-xs-12" style="   height: 45vh;">
+
+    <table style="font-size: 2em;  background: #ffecd1; text-align: center; border: 10px solid #c9ad8b; border-radius: 5px;">
+        <thead>
+            <tr >
+                <th style="text-align: center;">團名</th>
+                <th style="text-align: center;">目前數量/目標</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><%= Shop.find_by(:id=>activity.shop_id).name %></td>
+                <td><%= activity.cur_quantity %>/<%= activity.est_quantity %></td>
+            </tr>
+            <tr>
+                <td style="background-color: transparent;"><b>截止時間</b></td>
+                <td style="background-color: transparent;"><b>詳細資料</b></td>
+
+            </tr>
+            <tr>
+                <td><%= activity.cuttime.month %>/<%= activity.cuttime.day %></td>
+                <td><%= link_to "Show",activity_path(activity),:method=>:get %></td>
+            </tr>
+            <tr>
+                <td style="background-color: transparent;"><b>跟團++</b></td>
+            </tr>
+            <tr>
+                
+                <td><%= link_to "++", new_order_url(:activity=>activity.id),:method=>:get %></td>
+            </tr>
+            <tr>
+                <td style="background-color: transparent;">&nbsp;</td>
+                <td style="background-color: transparent;">&nbsp;</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
     
-    <%= activity.created_at.month %>
-    <%= activity.created_at.day %>
-    -------------------------------
-    <br/>
-    cuttime month and day
-    <%= activity.cuttime.month %>
-    <%= activity.cuttime.day %>
-    -------------------------------
-    <%= link_to "++", new_order_url(:activity=>activity.id),:method=>:get %>
-    </div>
+    
 <% end %>
+</div>

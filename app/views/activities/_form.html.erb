@@ -1,16 +1,23 @@
-<br/>
+<br><br><br>
+
+<h2 style="width: 40%"> 開團 </h2>
+
+
+<br/><br>
+<%= data.label :title,"店家" %>
 <%= data.collection_select :shop_id,Shop.all,:id,:name,:prompt=>false %>
-<br/>
+<br/><br>
 <%= data.label :title,"團購標題" %>
 <%= data.text_field :title %>
+<br><br>
 <%= data.label :cuttime,"截止時間" %>
 <%= data.text_field :cuttime%>
-<br/>
+<br/><br>
 <%= data.label :arrtime,"預計送達時間"  %>
 <%= data.text_field :arrtime %>
-<br/>
+<br/><br>
 <%= data.label :est_quantity,"目標人數" %>
 <%= data.number_field :est_quantity,:min=>1 %>
-<br/>
+<br/><br>
 <%= data.label :place,"取貨地點" %>
 <%= data.text_field :place %>
