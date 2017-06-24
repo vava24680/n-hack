@@ -1,4 +1,4 @@
-<%= form_for @order, :url=>orders_path, :method=>:post do |user_data| %>
+<%= form_for @order, :url=>orders_path(:activity_id=>params[:activity]), :method=>:post do |user_data| %>
     <%= render :partial=>"form",:locals=>{:data=>user_data} %>
     <br/>
     <%= user_data.submit "Create" %>

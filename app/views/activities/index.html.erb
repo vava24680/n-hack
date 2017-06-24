@@ -6,20 +6,21 @@
     <%= link_to "Sign up", new_admin_registration_url %>
 <% end %>
 <% @activities.each do |activity| %>
-    <table>
-        <thead>
-            <tr>
-                <th>團名</th>
-                <th>目前數量</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><%= activity.title %></td>
-                <td><%= activity.cur_quantity %></td>
-            </tr>
-        </tbody>
-    </table>
-    <%= link_to "Show",activity_path(activity),:method=>:get %>
+    <div>
+    <%= Shop.find_by(:id=>activity.shop_id).name %>
+    <%= activity.cur_quantity %>
+    <%= activity.est_quantity %>
     <br/>
+    -------------------------------
+    
+    <%= activity.created_at.month %>
+    <%= activity.created_at.day %>
+    -------------------------------
+    <br/>
+    cuttime month and day
+    <%= activity.cuttime.month %>
+    <%= activity.cuttime.day %>
+    -------------------------------
+    <%= link_to "++", new_order_url(:activity=>activity.id),:method=>:get %>
+    </div>
 <% end %>
