@@ -1,6 +1,6 @@
 class ActivitiesController < ApplicationController
     before_action :set_activity, :only=>[:show,:edit,:destroy]
-    before_action :authenticate_admin!, :only=>[:new,:create,:edit,:update,:destroy]
+    before_action :authenticate_admin!, :only=>[:new,:create,:edit,:update,:destroy,:youractivity]
     def index
         @activities=Activity.all
         #@valid_activities=Activity.where(:stillValid=>true)
@@ -24,7 +24,7 @@ class ActivitiesController < ApplicationController
        #save_activityID(@activity)
     end
     def edit
-        if current_user.id!=@activity.user_id
+        if current_admin.id!=@activity.user_id
             #flash[:alert]="無法編輯他人團購"
             redirect_to activities_path,:method=>:get
         end
@@ -39,6 +39,10 @@ class ActivitiesController < ApplicationController
         end
     end
     def destroy
+    end
+    def youractivity
+        @allactivities = Activity.where(:user_id=>current_admin.id)
+        #@activity=Activity.where(:user_id=>current_admin.id)
     end
 private
     def set_activity
