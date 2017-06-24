@@ -3,6 +3,8 @@ class ActivitiesController < ApplicationController
     before_action :authenticate_admin!, :only=>[:new,:create,:edit,:update,:destroy]
     def index
         @activities=Activity.all
+        #@valid_activities=Activity.where(:stillValid=>true)
+        #@notvalid_activities=Activity.where(:stillValid=>false)
     end
     def new
         @activity=Activity.new

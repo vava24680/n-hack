@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
     before_action :set_order,:only=>[:show,:edit,:update,:delete]
-    before_action :authenticate_admin!    
+    before_action :authenticate_admin!
     def new
         @order=Order.new
     end
@@ -36,6 +36,9 @@ class OrdersController < ApplicationController
         @order.destroy
         #@flash[:notice]=""
         redirect_to new_order_path,:method=>:get
+    end
+    def yourorder
+        @yourorder = Order.where(:user_id=>current_admin.id)
     end
 private
     def order_params
